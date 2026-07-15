@@ -1,0 +1,17 @@
+# Core orchestration
+langchain>=0.2.11
+langchain-chroma>=0.1.2
+chromadb>=0.5.3
+
+# LLM provider
+
+
+# Data / schema
+pydantic>=2.7.4
+pydantic-settings>=2.3.4
+
+# App
+streamlit>=1.36.0
+
+# Utilities
+python-dotenv>=1.0.1
