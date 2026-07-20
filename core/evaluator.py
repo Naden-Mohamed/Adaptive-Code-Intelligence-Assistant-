@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 class Evaluator:
     """LLM-as-judge that decides whether retrieved documents are usable context."""
-    def __init__(self) -> None:
+    def __init__(self, llm_client) -> None:
         settings = get_settings()
         self.llm_client = LLMClient(model_name=settings.model_id, temperature=settings.temperature)
 

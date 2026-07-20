@@ -8,9 +8,9 @@ from datetime import datetime, timezone
 logger = logging.getLogger(__name__)
 
 class SelfLearningIngestor:
-    def __init__(self) -> None:
+    def __init__(self, retreiver) -> None:
         self.settings = get_settings()
-        self.retreiver = DataRetrieval()
+        self.retreiver = retreiver or DataRetrieval()
         self.similarity_threshold = self.settings.similarity_threshold
 
     def ingest(self, query: str, solution: GeneratedSolution):

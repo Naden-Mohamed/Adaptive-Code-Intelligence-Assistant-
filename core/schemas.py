@@ -10,7 +10,7 @@ class RouterOutput(BaseModel):
 class ExplainationResponce(BaseModel):
     explaination: str
     complexity_analysis: Optional[str] = None
-    best_practices: list[str] = Field(default_factory=list)
+    best_practices: Optional[list[str]] = Field(default_factory=list)
 
 class GenerationResponce(BaseModel):
     code: str

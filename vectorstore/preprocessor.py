@@ -1,6 +1,6 @@
-from .config import get_settings
+from ..core.config import get_settings
 import json
-from .retriever import DataRetrieval
+from ..core.retriever import DataRetrieval
 import logging
 
 logger = logging.getLogger(__name__)

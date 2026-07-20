@@ -9,9 +9,9 @@ from prompts.router_prompt import ROUTER_SYSTEM_PROMPT, build_router_user_prompt
 logger = logging.getLogger(__name__)
 
 class TaskRouter:
-    def __init__(self) -> None:
+    def __init__(self,llm_client) -> None:
         settings = get_settings()
-        self.llm_client = LLMClient(model_name=settings.model_id, temperature=settings.temperature)
+        self.llm_client = llm_client or LLMClient(model_name=settings.model_id, temperature=settings.temperature)
         self.min_confidence = settings.router_min_confidence
 
     def route(self, query:str, code:str | None) -> RouterOutput:
