@@ -64,8 +64,12 @@ Direct to LLM          Search Vector DB
                                           │
                                           ▼
                               Optional: Execute Generated Code
+```
+
+See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for component-level responsibilities and design rationale.
 
 ---
+
 ## Key Features
 
 - **Intent-based routing** — no manual mode switching; the LLM decides the workflow.
@@ -74,17 +78,19 @@ Direct to LLM          Search Vector DB
 - **Consistent output schema** — both the RAG and non-RAG generation paths return the same structured object (`code`, `explanation`, `language`, `dependencies`), so downstream UI logic doesn't need to know which path was taken.
 - **Transparent decision trail** — the UI surfaces which route was taken and whether retrieved context was accepted or rejected.
 - **(Bonus) Sandboxed code execution** — run generated code in an isolated environment and view stdout, errors, and execution time directly in the app.
+
 ---
+
 ## Tech Stack
 
 | Layer | Technology |
 |---|---|
 | Orchestration | LangChain |
-| LLM | Gorq API (configurable) |
-| Vector Database | Chroma |
-| Embeddings | `BAAI/bge-m3` (configurable) |
+| LLM | OpenAI API (configurable) |
+| Vector Database | Chroma / FAISS |
+| Embeddings | `text-embedding-3-small` (configurable) |
 | UI | Streamlit |
-| Sandbox Execution | Isolated subprocess |
+| Sandbox Execution | Isolated subprocess / Docker |
 | Seed Dataset | [OpenAI HumanEval](https://huggingface.co/datasets/openai/openai_humaneval) |
 
 ---
