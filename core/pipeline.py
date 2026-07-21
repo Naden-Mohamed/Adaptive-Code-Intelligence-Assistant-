@@ -18,6 +18,8 @@ from .schemas import (
     RetrievalRelevance,
 )
 from .tracing import write_trace
+from core.config import get_settings
+from core.llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 
@@ -35,11 +37,13 @@ class AdaptiveCodeAssistantPipeline:
                 router: TaskRouter | None = None, evaluator: Evaluator | None = None,
                 generator: Generator| None = None, retriever: DataRetrieval| None = None,
                 ingestor: SelfLearningIngestor | None = None) -> None:
-        self.router = router or TaskRouter()
-        self.evaluator = evaluator or Evaluator()
+        settings = get_settings()
+        self.llm_client = LLMClient(model_name=settings.model_id, temperature=settings.temperature)
+        self.router = router or TaskRouter(self.llm_client)
+        self.evaluator = evaluator or Evaluator(self.llm_client)
         self.generator = generator or Generator()
         self.retriever = retriever or DataRetrieval()
-        self.ingestor = ingestor or SelfLearningIngestor()
+        self.ingestor = ingestor or SelfLearningIngestor(self.llm_client)
 
     def run(self, query: str, code: str | None = None) -> tuple[PipelineResult, PipelineTrace]:
         start = time.perf_counter()
