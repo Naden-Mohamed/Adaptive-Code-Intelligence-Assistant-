@@ -75,8 +75,6 @@ Direct to LLM          Search Vector DB
 - **Transparent decision trail** — the UI surfaces which route was taken and whether retrieved context was accepted or rejected.
 - **(Bonus) Sandboxed code execution** — run generated code in an isolated environment and view stdout, errors, and execution time directly in the app.
 ---
----
-
 ## Tech Stack
 
 | Layer | Technology |
@@ -91,8 +89,6 @@ Direct to LLM          Search Vector DB
 
 ---
 
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -100,7 +96,7 @@ Direct to LLM          Search Vector DB
 - Python 3.10+
 - An Groq API key (or equivalent LLM provider key)
 - ~1GB disk space for the local vector store and seed dataset
-
+---
 ### Installation
 
 ```bash
