@@ -91,37 +91,6 @@ Direct to LLM          Search Vector DB
 
 ---
 
-## Project Structure
-
-```
-adaptive-code-assistant/
-├── README.md
-├── ARCHITECTURE.md
-├── requirements.txt
-├── .env.example
-├── app/
-│   ├── main.py
-│   └── ui/
-├── core/
-│   ├── router.py
-│   ├── retriever.py
-│   ├── evaluator.py
-│   ├── generator.py
-│   ├── ingestion.py
-│   └── executor.py
-├── vectorstore/
-│   ├── build_index.py
-│   └── schema.py
-├── prompts/
-├── evaluation/
-│   ├── test_cases.json
-│   ├── run_eval.py
-│   └── metrics.py
-├── data/seed_docs/
-├── tests/
-└── logs/traces/
-```
-
 ---
 
 ## Getting Started
@@ -137,12 +106,15 @@ adaptive-code-assistant/
 ```bash
 git clone https://github.com/Naden-Mohamed/Adaptive-Code-Intelligence-Assistant-.git
 cd Adaptive-Code-Intelligence-Assistant
-
+```
+```bash
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
-
+```
+```bash
 pip install -r requirements.txt
-
+```
+```bash
 cp .env.example .env          # then fill in your API key
 ```
 
