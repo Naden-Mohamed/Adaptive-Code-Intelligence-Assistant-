@@ -65,7 +65,7 @@ Direct to LLM          Search Vector DB
                                           ▼
                               Optional: Execute Generated Code
 
-
+---
 ## Key Features
 
 - **Intent-based routing** — no manual mode switching; the LLM decides the workflow.
@@ -74,7 +74,7 @@ Direct to LLM          Search Vector DB
 - **Consistent output schema** — both the RAG and non-RAG generation paths return the same structured object (`code`, `explanation`, `language`, `dependencies`), so downstream UI logic doesn't need to know which path was taken.
 - **Transparent decision trail** — the UI surfaces which route was taken and whether retrieved context was accepted or rejected.
 - **(Bonus) Sandboxed code execution** — run generated code in an isolated environment and view stdout, errors, and execution time directly in the app.
-
+---
 ---
 
 ## Tech Stack
